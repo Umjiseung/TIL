@@ -10,10 +10,13 @@
 > 또한 취업에 필요한 자료구조, 알고리즘 또한 꾸준히 학습해야 한다.
 
 ### 기본
+```
 1. Process 와 Thread
-2. Memory
 
+2. Memory
+```
 ### 중요
+```
 1. CPU Scheduling 
 
 2. Synchronize(동기화)와 Deadlock
@@ -21,7 +24,7 @@
 3. Security
 
 4. 자료구조 / 알고리즘
-
+```
 # 
 ## Part 2. Java 
 #
@@ -37,6 +40,7 @@
 > 네카라쿠배, 유니콘 회사들의 채용공고를 한번 쓱 흝어 보면 어떤 언어를 채용하는 포지션이 많은지보면 자바가 거의 많은 지분을 차지하고 있다.
 
 ### 기본
+```
 1. 변수
 
 2. 연산자
@@ -58,9 +62,9 @@
 10. Lamda & Stream
 
 11. IO 입출력
-
-
+```
 ### 중요
+```
 1. Java와 JVM의 기초
 
 2. Thread
@@ -72,7 +76,7 @@
 5. JVM 고급
 
 6. 주요 디자인 패턴(MVC,싱글톤 필수, 어댑터 등)
-
+```
 #
 ## Part 3. DataBase
 #
@@ -88,33 +92,37 @@
 > 정보가 어떤 DB로 들어가고, DB를 뽑아오고, 뽑아올 때 어떤 필터를 걸치는지를 이해할 수 있어야 한다.
 
 ### 기본
-
+```
 1. Database 이론
 
 2. Data CRUD
+
 3. Data Relation(Join, 조건문, Dynamic Query 나누어서 사용)
+
 4. Table
+
 5. View
+
 6. CUI 기반의 실습(Pure Java CRUD)
-
+```
 ### 선택
-
+```
 1. 설치
 
 2. 샘플로로 보는 DB의 활용
 
 3. Procedure
-
+```
 ### 중요
-
+```
 1. index
-
+```
 #
 ## Part 4. Git
 #
 
 ### 기본
-
+```
 1. Git이란?
 
 2. 가입 및 주요 기능 소개
@@ -122,7 +130,7 @@
 3. Branch, PR, Merge, 커밋 메세지
 
 4. Git 고급(Cherry pick, rebase 등)
-
+```
 #
 ## Part 5. Spring( Spring Boot MVC )
 #
@@ -140,6 +148,7 @@
 > 서서히 소멸해 가고 있는 JSP와 같은 부분을 최소화 하고 Spring, Mysql, JPA, Security등을 중심으로 학습해가는 것을 추천한다.
 
 ### 중요
+```
 1. Spring이란(AOP, IDC, DI 등 포함)
 
 2. 웹 개발과 Rest API
@@ -147,9 +156,9 @@
 3. 트랜잭션
 
 4. Test code
-
+```
 ### 기본
-
+```
 1. Spring Boot
 
 2. CURD API 만들어보기(with lombok)
@@ -161,7 +170,7 @@
 4. 외부 API 연동(Rest template, Feign)
 
 5. Logging
-
+```
 #
 ## Part 6-7. JPA, Security
 #
@@ -173,7 +182,7 @@
 > 기존 SQL을 직접 작성해서 Database 와 연동한 것에 비해, ORM은 객체를 기반으로 DB의 Table을 매핑했기 떄문에, 좀 더 프로그래밍 친화적이라고 할 수 있고 재사용성이나, 유지 보수 같은 측면에서도 이득이다.
 
 > JPA의 경우 진입장벽이 높고 객체를 기반으로 Table을 handling하다 보니 SQL이 실제로 어떻게 만들어지는 지도 알아야 하고, 당연하게도 Database와 실제 처리하는 SQL에 대해 잘 알아야 JPA를 어떻게 활용하는 지 알 수 있다.
-
+```
 1. ORM 소개(기존 방식과의 차이)
 
 2. 영속성 관리(JPA의 동작원리)
@@ -185,13 +194,13 @@
 5. Proxy
 
 6. JPQL
-
+```
 ### Security, Spring Cloud Gateway
 
 > 개발자도 보안에 대해 잘 알아야하고 대중적으로 많이 사용하는 JWT에 대해 다루고, 이를 기반으로 한 OAuth2를 통해 인증을 득하고, 세션을 관리할 수 있는 것은 꽤 우아한 방식이다.
 
 > 물론, 필수는 아니지만, 그 안정성을 많은 이들에게 인정받고, 대중적으로 잘 사용하고 있는 기술들이다.  
-
+```
 1. OAuth2
 
 2. JWT
@@ -203,3 +212,4 @@
 5. Feign
 
 6. 실습
+```
