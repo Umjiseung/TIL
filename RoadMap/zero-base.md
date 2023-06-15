@@ -51,7 +51,7 @@
 
 5. 객체지향 프로그래밍 I(오버로딩, 오버라이딩까지)
 
-6. Exception Handing 
+6. Exception Handling 
 
 7. Java 자료 구조 Collection
 
