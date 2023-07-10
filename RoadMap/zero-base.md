@@ -59,7 +59,7 @@
 
 9. Generic, Enum
 
-10. Lamda & Stream
+10. Lambda & Stream
 
 11. IO 입출력
 ```
