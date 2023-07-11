@@ -92,3 +92,61 @@ new Thread(new Runnable() {
       System.out.println("Welcome Heejin blog"); 
    }
 ```
+
+---
+## java.util.function 인터페이스
+---
+### Intfunction<R>
+int 값의 인수를 받아들이고 결과를 생성하는 함수를 나타낸다.
+
+#### 사용 예제
+```java
+IntFunction intSum = (x) -> x+1;
+System.out.println(intSum.apply(1));
+```
+
+### BinaryOperator<T>
+동일한 유형의 두 피연산자에 대한 연산을 나타내며 피연산자와 동일한 유형의 결과를 생성한다.
+
+#### 사용 예제
+```java
+BinaryOperator stringSum=(x, y)->x+" "+y;
+System.out.println(stringSum.apply("Welcome","Heejin blog"));
+```
+---
+## Stream API
+---
+
+### Stream이란
+* Stream이란 다양한 데이터를 표준화된 방법으로 다루기 위한 라이브러리이다. 자바 8부터 추가된 Stream API는 다음과 같이 구성된다.
+
+```java
+example.stream().filter(x -> x < 2).count
+```
+
+* stream() <- 스트림생성
+
+* fiter <- 중간 연산 (스트림 변환) - 연속에서 수행 가능하다.
+
+* count <- 최종 연산(스트림 사용) - 마지막에 단 한 번만 사용 가능하다.
+---
+### Stream의 특징
+
+* Stream은 데이터를 변경하지 않습니다.
+
+* Stream은 1회용 입니다.
+
+* Stream은 지연 연산을 수행한다.
+
+* Stream은 병렬 실행이 가능하다.
+---
+### Stream의 종류
+
+1. Stream <T> : 범용 Stream
+
+2. IntStream : 값 타입이 Int인 Stream
+
+3. LongStream : 값 타입이 Long인 Stream
+
+4. DoubleStream : 값 타입이 Double인 Stream
+---
