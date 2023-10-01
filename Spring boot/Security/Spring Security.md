@@ -11,8 +11,6 @@
 
 ## 인증관련된 아키텍쳐
 
-![Alt text](image.png)
-
 * 인증(Authentication) : 해당 사용자가 본인이 맞는지 확인하는 과정
 
 * 인가(Authorization): 인증된 사용자가 요청한 자원에 접근 가능한지 결정하는 과정
@@ -24,3 +22,17 @@
     * Principal(접근 주체): 보호받는 Resource에 접근하는 대상
 
     * Credential(비밀번호): Resource에 접근하는 대상의 비밀번호
+
+![Alt text](image.png)
+
+1. HTTP Request에 로그인 정보가 오면서 인증 요청을 보낸다.
+
+2. AuthenticationFilter가 가로채서 UsernamePasswordAuthenticationToken으로 가서 인증하기 위한 객체를 만든다.
+
+3. AuthenticationManager의 구현체인 ProviderManager한테 인증하기 위해 만든 객체를 전달한다.
+
+4. ProviderManager가 AuthenticationProvider들 중에 맞는 것이 있는 지 확인한다. 맞으면 인증을 요구한다.
+
+5. 실제 데베에서 정보를 가져오는 UserDetailService에게 사용자 정보를 넘겨준다.
+
+6. 넘겨받은 정보를 통해서 데베에서 찾아낸 사용자 정보를 UserDetails라는 객체를 만든다.
