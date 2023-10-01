@@ -25,14 +25,34 @@
 
 ![Alt text](image.png)
 
-1. HTTP Request에 로그인 정보가 오면서 인증 요청을 보낸다.
+1. **HTTP Request 요청**
+    > HTTP Request에 로그인 정보가 오면서 인증 요청을 보낸다.
 
-2. AuthenticationFilter가 가로채서 UsernamePasswordAuthenticationToken으로 가서 인증하기 위한 객체를 만든다.
+2. **유저 기반의 인증용토큰 생성**
+    > AuthenticationFilter가 가로채서 UsernamePasswordAuthenticationToken으로 가서 인증하기 위한 객체를 만든다.
 
-3. AuthenticationManager의 구현체인 ProviderManager한테 인증하기 위해 만든 객체를 전달한다.
+3. **Fliter에서 토큰을 AuthenticationManager로 전달**
+    > AuthenticationManager의 구현체인 ProviderManager한테 인증하기 위해 만든 객체를 전달한다.
 
-4. ProviderManager가 AuthenticationProvider들 중에 맞는 것이 있는 지 확인한다. 맞으면 인증을 요구한다.
+4. **AuthenticationProvider에서 정보를 찾아 인증 시도**
+    > ProviderManager가 AuthenticationProvider들 중에 맞는 것이 있는 지 확인한다. 맞으면 인증을 요구한다.
 
-5. 실제 데베에서 정보를 가져오는 UserDetailService에게 사용자 정보를 넘겨준다.
+5. **UserDeatailService에게 전달**
+    > 실제 데베에서 정보를 가져오는 UserDetailService에게 사용자 정보를 넘겨준다.
 
-6. 넘겨받은 정보를 통해서 데베에서 찾아낸 사용자 정보를 UserDetails라는 객체를 만든다.
+6. **UserDetails 객체를 사용하여 User객체의 대한 정보 탐색**
+    > 넘겨받은 정보를 통해서 데베에서 찾아낸 사용자 정보를 UserDetails라는 객체를 만든다.
+
+7. User객체의 대한 정보를 UserDetails에 담아 UserDetailService로 전달
+    > AuthenticationProvider은 UserDetails를 받아서 정보를 비교한다.
+
+8. **정보 비교 후 맞으면 인증, 아니면 Exception**
+    > 인증이 완료되면 사용자 정보가 담긴 Authentication 객체를 반환한다.
+
+9. **인증 완료**
+    > 다시 AuthenticationFliter에게 Authentication 객체를 반환한다.
+
+10. **SecurityContext에 인증 객체를 설정**
+    > Authentication 객체를 Security Context에 저장한다.
+
+* 아키텍쳐를 봐보면 스프링 시큐리티가 세션-쿠키기반의 인증 방식을 사용하는 것을 알 수 있다.
