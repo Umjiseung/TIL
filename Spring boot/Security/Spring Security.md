@@ -56,3 +56,77 @@
     > Authentication 객체를 Security Context에 저장한다.
 
 * 아키텍쳐를 봐보면 스프링 시큐리티가 세션-쿠키기반의 인증 방식을 사용하는 것을 알 수 있다.
+
+## Spring Security 주요 모듈
+
+### SecurityContextHolder, SecurityContext, Authentication
+
+* 세가지는 스프링 시큐리티의 주요 컴포넌트이다.
+
+* 사용자의 아이디와 패스워드 사용자 정보를 넣고 실제 가입된 사용자인지 체크하고 만약에 인증에 성공하면 사용자의 principal과 credential정보를 Authentication에 넣는다.
+
+* 스프링 시큐리티는 방금 담은 Authentication을 SecurityContext에 보관한다.
+
+* 근데 방금 SecurityContext에 보관한 것을 SecurityContext를 SecurityContextHolder에 넣어 보관한다.
+
+### UsernamePasswordAuthenticatiomToken
+
+* Authentication을 구현한 AbstractAuthenticationToken의 하위 클래스이다.
+
+* 사용자의 ID가 Principal의 역할을 하고 유저의 Password가 Credential의 역할을 한다.
+
+* UserPasswordAuthenticationToken의 첫 생성자는 인증 전에 객체를 생성하고 두번쨰 생성자는 인증 후 객체를 생성한다.
+
+### AuthenticationManager
+
+* 인증에 관한 부분은 여기서 처리한다.
+
+* 직관적으로 말하자면 AuthenticationManager에 등록된 AuthenticationProvider에 의해 처리가 된다.
+
+* 인증을 성공하면 두번째 생성자를 사용해 생성된 객체를 SecurityContext에 저장된다.
+
+### AuthenticationProvider
+
+* 실제 인증에 대한 부분을 처리하는 부분이다.
+
+* 인증하기 전인 Authentication객체를 받아서 인증을 완료한 객체를 반환하는 역할이다.
+
+* 인터페이스를 구현해서 Custom한 AuthenticationProvider를 작성하고 AuthenticationManager에 등록한다.
+
+### ProviderManager
+
+* AuthenticationManager를 구현한 ProviderManager은 AuthenticationProvider을 구성하는 목록을 가진다.
+
+### UserDetailsService
+
+* UserDetails 객체를 반환하는 하나의 메서드만 가지고 있다.
+
+* 일반적으로는 이것을 구현한 클래스에서 UserRepository를 주입하여 DB와 연결해서 처리한다.
+
+### UserDetails
+
+* 인증이 성공된 UserDetails 클래스는 Authentication 객체를 구현한 UsernamePasswordAuthenticationToken을 생성하기 위해 사용한다.
+
+* UserDetails를 구현해 처리할 수 있다.
+
+### SecurityCOntextHolder
+
+* 보안 주체의 세부 정보를 가지고 있어 응용 프로그램의 현재 보안 컨텍스트에 대한 세부 정보가 저장된다.
+
+### SecurityContext
+
+* Authentication을 보관하는 역할이다.
+
+* SecurityContext를 통해서 Authentication을 가져올 수 있다.
+
+### GrantedAuthority
+
+* 현재 사용자(principal)가 가지고 있는 권한을 말한다.
+
+* 예를 들어 `ROLE_ADMIN`, `ROLE_USER`처럼 `ROLE_*`의 형태이다.
+
+* GrantedAuthority객체는 UserDetailsService에 의해 불러올 수도 있고, 특정 자원에 대해 권한이 있는지 확인해 접근 허용을 판단한다.
+
+## 마무리
+> spring security를 내부 구조나 무슨 역할을 하는지 잘 알아야 나중에 문제가 생겼을 때 빠르게 대처할 수 있다. 
+Spring Security어렵다...
