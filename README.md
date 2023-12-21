@@ -1,1 +1,1 @@
-공부 정리!!
+Today I learn!
